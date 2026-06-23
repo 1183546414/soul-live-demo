@@ -23,7 +23,7 @@ npm install
 npm run dev
 ```
 
-访问 http://localhost:3000
+访问 https://soul-live-demo-git-main-nana7mi1.vercel.app/
 
 ## 部署到 Vercel
 
