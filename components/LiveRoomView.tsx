@@ -38,6 +38,9 @@ export default function LiveRoomView({
   const hostAvatar = room?.hostAvatar ?? "🎨";
   const displayTitle = title ?? room?.title ?? "深夜治愈电台";
   const viewers = room?.viewers ?? 12;
+  const bgGradient =
+    room?.gradient ?? "linear-gradient(135deg, #a8edea 0%, #25d4d0 100%)";
+  const bgEmoji = room?.emoji ?? "🎨";
 
   const [showGifts, setShowGifts] = useState(false);
   const [floatingGifts, setFloatingGifts] = useState<FloatingGift[]>([]);
@@ -76,21 +79,34 @@ export default function LiveRoomView({
         ...(resonance && { boxShadow: "inset 0 0 0 3px var(--accent)" }),
       }}
     >
-      {/* 全屏直播画面 */}
+      {/* 全屏直播画面 — 渐变背景 */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url(/live-room-bg.png)",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
+          background: bgGradient,
         }}
       />
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 25%, transparent 60%, rgba(0,0,0,0.5) 100%)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 140,
+          opacity: 0.2,
+          pointerEvents: "none",
+        }}
+      >
+        {bgEmoji}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 30%, transparent 55%, rgba(0,0,0,0.45) 100%)",
         }}
       />
 
