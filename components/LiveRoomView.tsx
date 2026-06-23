@@ -469,7 +469,6 @@ function ViewerStack({ count }: { count: number }) {
           <span
             key={i}
             style={{
-              display: "block",
               width: 32,
               height: 32,
               borderRadius: "50%",
